@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: docker confirm
+      - name: check
         run: |
           docker version
           docker-compose version
+          make -v
+          gcc -v
