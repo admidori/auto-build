@@ -1,2 +1,2 @@
 #!/bin/sh
-unlink /usr/local/bin/abd
+sudo unlink /usr/local/bin/abd
