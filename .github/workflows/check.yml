@@ -11,12 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Apt check
+      - name: init
         run: |
           docker version
           docker-compose version
           make -v
           gcc -v
+          
       - name: install
         run: make install
 
