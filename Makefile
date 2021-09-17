@@ -1,11 +1,11 @@
 install: ## Auto-buildをインストールします。
-	@cd installers && ./install.sh
+	@cd installers && chmod 777 install.sh && ./install.sh
  
 uninstall: ## Auto-buildをアンインストールします。
-	@cd installers && ./uninstall.sh
+	@cd installers && chmod 777 uninstall.sh && ./uninstall.sh
  
 test: ##test用のコマンドです。
-	@cd .test && ./test.sh
+	@cd .test && abd src test
 
 .DEFAULT_GOAL := help
 .PHONY: help install uninstall test
