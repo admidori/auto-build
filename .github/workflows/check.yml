@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: check
+      - name: Apt check
         run: |
           docker version
           docker-compose version
@@ -19,3 +19,10 @@ jobs:
           gcc -v
       - name: install
         run: make install
+
+      - name: test
+        working-directory: ./.test
+        run: abd src test
+
+      - name: uninstall
+        run: make uninstall
