@@ -1,0 +1,18 @@
+#!/bin/sh
+#ディレクトリを指定＝＞複数ファイルなどにも対応できるようにする
+NOW_DIR=$(pwd)
+TMP=$(readlink /usr/local/bin/abd)
+ABD_DIR=${TMP%abd}
+
+cp $NOW_DIR/$1/* $ABD_DIR/c/src
+echo name=${2} > $ABD_DIR/c/info.env
+cd $ABD_DIR/c/src
+docker-compose up -d --build
+echo ""
+echo "BUILD COMPLETE!"
+echo ""
+echo "###########  OUTPUT  ##########"
+cat $ABD_DIR/c/src/output.txt
+echo "############# END #############"
+rm -r $ABD_DIR/c/src
+cp -fr $ABD_DIR/c/original_src $ABD_DIR/c/src
