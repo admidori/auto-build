@@ -1,7 +1,7 @@
 #!/bin/sh
 NOW_DIR=$(pwd)
 TMP=$(readlink /usr/local/bin/abd)
-ABD_DIR=${TMP%abd}
+ABD_DIR=${TMP%/abd}
 
 cp $NOW_DIR/$1/* $ABD_DIR/c/src
 echo name=${2} > $ABD_DIR/c/info.env
