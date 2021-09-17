@@ -1,5 +1,4 @@
 #!/bin/sh
-#ディレクトリを指定＝＞複数ファイルなどにも対応できるようにする
 NOW_DIR=$(pwd)
 TMP=$(readlink /usr/local/bin/abd)
 ABD_DIR=${TMP%abd}
