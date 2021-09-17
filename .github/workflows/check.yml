@@ -17,3 +17,5 @@ jobs:
           docker-compose version
           make -v
           gcc -v
+      - name: install
+        run: make install
