@@ -11,5 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install auto-build
+        run: make install
       - name: test
-        run: echo "TEST"
+        run: |
+          cd .test/
+          abd src test
+      - name: Uninstall
+      - run: make uninstall
