@@ -15,3 +15,5 @@ cat $ABD_DIR/c/src/output.txt
 echo "############# END #############"
 rm -r $ABD_DIR/c/src
 cp -fr $ABD_DIR/c/original_src $ABD_DIR/c/src
+rm $ABD_DIR/c/info.env
+touch $ABD_DIR/c/info.env
