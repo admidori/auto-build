@@ -14,11 +14,10 @@ jobs:
       - name: Install Makefile and sudo
         run: apt-get update && apt-get install -y make sudo
       - name: Install auto-build
-        run: sudo make install
+        run: make install
       - name: test
         run: |
           cd .test/
           abd src test
-          cd ../
       - name: Uninstall
-      - run: sudo make uninstall
+      - run: make uninstall
