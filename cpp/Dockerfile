@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk update \
-  && apk add c++
+  && apk add g++
 
 WORKDIR /root/main
 CMD sh setup.sh
