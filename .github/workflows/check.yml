@@ -1,0 +1,24 @@
+name: CI
+
+on: 
+  push: 
+    branches: [ master ]
+  pull_request: 
+    branches: [ master ]
+
+jobs: 
+  Ubuntu: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Makefile and sudo
+        run: apt-get update && apt-get install -y make sudo
+      - name: Install auto-build
+        run: sudo make install
+      - name: test
+        run: |
+          cd .test/
+          abd src test
+          cd ../
+      - name: Uninstall
+      - run: sudo make uninstall
