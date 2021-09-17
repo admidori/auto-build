@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Makefile and sudo
-        run: apt-get update && apt-get install -y make sudo
       - name: Install auto-build
         run: make install
       - name: test
