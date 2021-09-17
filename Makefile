@@ -4,8 +4,11 @@ install: ## Auto-buildをインストールします。
 uninstall: ## Auto-buildをアンインストールします。
 	@cd installers && ./uninstall.sh
  
+test: ##test用のコマンドです。
+	@cd .test && ./test.sh
+
 .DEFAULT_GOAL := help
-.PHONY: help full_install install uninstall
+.PHONY: help install uninstall test
  
 help:  ## インストールツールの使い方を表示します。
 	@echo "***Auto-build インストールツール***"
