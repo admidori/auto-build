@@ -6,7 +6,7 @@ ABD_DIR=${TMP%/abd}
 cp $NOW_DIR/$1/* $ABD_DIR/c/src
 echo name=${2} > $ABD_DIR/c/info.env
 cd $ABD_DIR/c
-docker-compose up -d --build
+docker-compose run --rm c
 echo ""
 echo "BUILD COMPLETE!"
 echo ""
