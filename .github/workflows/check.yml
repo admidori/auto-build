@@ -16,6 +16,9 @@ jobs:
       - name: Install auto-build
         run: sudo make install
       - name: test
-        run: sduo make test
+        run: |
+          cd .test/
+          abd src test
+          cd ../
       - name: Uninstall
       - run: sudo make uninstall
