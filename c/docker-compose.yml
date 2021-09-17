@@ -1,0 +1,10 @@
+version: '3.7'
+services: 
+          c: 
+            build: .
+            env_file: 
+                - info.env
+            container_name: 'ABD_PROCESS'
+            tty: true
+            volumes: 
+                - ./src:/root/main
