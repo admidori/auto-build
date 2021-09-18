@@ -23,7 +23,7 @@ DockerとDocker-composeを手元の環境でインストールしてください
 
 ## STEP 1
 gitで当リポジトリをcloneしてください。  
-```$git clone https:github.com/rp-agota/auto-build.git```
+```$git clone https:github.com/rp-agota/auto-build.git```  
 
 ## STEP 2
 ターミナルにて以下を実行してください。  
@@ -36,18 +36,18 @@ $make install
 # 使い方
 任意の名前で作業用のディレクトリを作成し、その中で開発を行います。  
 その後、作業用ディレクトリの親階層にて、以下を実行します。  
-```$abd [コンパイルを行いたいファイルの拡張子] [作業用ディレクトリの名前] [コンパイルを行いたいファイル名(拡張子無し)]```
+```$abd [コンパイルを行いたいファイルの拡張子] [作業用ディレクトリの名前] [コンパイルを行いたいファイル名(拡張子無し)]```  
 この際、ファイル名に拡張子は含めないことに注意してください。  
 
 **(EX)**
 testディレクトリ内のhello.cをコンパイルしたい場合  
-`$abd c test hello`
+`$abd c test hello`  
 
 # アンインストール
 ターミナルにて以下を実行してください。  
 ```
 $cd auto-build
-make uninstall
+$make uninstall
 ```
 アンインストールは以上です。cloneしたファイルは削除して頂いて結構です。  
 
