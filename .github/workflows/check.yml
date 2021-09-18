@@ -21,13 +21,27 @@ jobs:
       - name: install
         run: make install
 
-      - name: c-test
-        working-directory: ./.test
-        run: abd c src test
+      - name: help
+        run: abd -h
 
-      - name: cpp-test
+      - name: version
+        run: abd -v
+        
+      - name: c-test(standard)
         working-directory: ./.test
-        run: abd cpp src test
+        run: abd c standard test
+
+      - name: c-test(input)
+        working-directory: ./.test
+        run: abd -i c input test
+
+      - name: cpp-test(standard)
+        working-directory: ./.test
+        run: abd cpp standard test
+
+      - name: cpp-test(input)
+        working-directory: ./.test
+        run: abd -i cpp input test
 
       - name: uninstall
         run: make uninstall
