@@ -1,3 +1,6 @@
+# Makefileでtest機能を実装するとroot権限で実行してしまうためabdが正しく動作しない。
+# そのためtest機能の実装は見送っている。
+
 install: ## Auto-buildをインストールします。
 	@cd installers && chmod 777 install.sh && ./install.sh
  
