@@ -1,5 +1,5 @@
 #!/bin/sh
-VERSION="beta1.0"
+VERSION="beta1.0.1"
 YEAR="2021"
 CNT=0
 INPUT=0
