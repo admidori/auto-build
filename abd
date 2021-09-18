@@ -1,25 +1,24 @@
 #!/bin/sh
-#Conform exist options
 if [ $# < 3 ]; then
     echo [ERROR]:Input Option
     exit 1
 else
     NOW_DIR=$(pwd)
     TMP=$(readlink /usr/local/bin/abd)
-    ABD_DIR=${TMP%abd}
+    ABD_DIR=${TMP%/abd}
 
-    cp $NOW_DIR/$2/* $ABD_DIR/$1/src
-    echo name=${3} > $ABD_DIR/$1/info.env
-    cd $ABD_DIR/$1/src
-    docker-compose up -d --build
+    cp $NOW_DIR/$1/* $ABD_DIR/c/src
+    echo name=${2} > $ABD_DIR/c/info.env
+    cd $ABD_DIR/c
+    docker-compose run --rm c
     echo ""
     echo "BUILD COMPLETE!"
     echo ""
     echo "###########  OUTPUT  ##########"
     cat $ABD_DIR/c/src/output.txt
     echo "############# END #############"
-    rm -r $ABD_DIR/$1/src
-    cp -fr $ABD_DIR/$1/original_src $ABD_DIR/$1/src
-    rm $ABD_DIR/$1/info.env
-    touch $ABD_DIR/$1/info.env
+    rm -r $ABD_DIR/c/src
+    cp -fr $ABD_DIR/c/original_src $ABD_DIR/c/src
+    rm $ABD_DIR/c/info.env
+    touch $ABD_DIR/c/info.env
 fi
