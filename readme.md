@@ -1,11 +1,15 @@
 # Auto Build  
+[![CI](https://github.com/rp-agota/auto-build/actions/workflows/check.yml/badge.svg)](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)
+[![VERSION](https://img.shields.io/github/v/tag/rp-agota/auto-build?color=Green&label=Version)](https://github.com/rp-agota/auto-build/releases)
+[![MIT License](https://img.shields.io/github/license/rp-agota/auto-build?label=License)](https://github.com/rp-agota/auto-build/blob/master/LICENCE)  
+
 Dockerを使用して手元の環境を汚すことなくプログラムをコンパイルします。  
 対応言語順次追加予定。  
 
 ## 動作確認済環境  
 Arch Linux  
 MacOS Big Sur  
-※他粗方のLinux系OSで動作すると思います。なおWindowsは確実に動きません。  
+※大体のLinux/UNIX系OSで動作すると思います。なおWindowsは確実に動きません。  
 
 ## 対応言語  
 ・C言語  
