@@ -1,5 +1,52 @@
 #!/bin/sh
-if [ $# -ne 3 ]; then
+VERSION="beta1.0"
+
+usage() {
+    echo "Usage: abd [OPTIONS] (LANGUAGE) (DIRECTORY) (FILE)"
+    echo "  -h, --help      : Print help message."
+    echo "  -v, --version   : Print version infomation."
+    echo "  -i              : Read input.txt."
+    exit 1
+}
+
+for OPT in "$@"
+do
+    case $OPT in
+        -h | --help)
+            usage
+            exit 1
+            ;;
+
+        -v | --version)
+            echo "Auto build $VERSION"
+            echo "Copyright (C) 2021 Midori Ado"
+            echo "This software is released under the MIT License."
+            echo "GitHub page: https://github.com/rp-agota/auto-build"
+            exit 1
+            ;;
+        
+        -i)
+            INPUT=TRUE
+            echo "good"
+            shift
+            ;;
+        
+        -*)
+            echo "abd: illegal option -- '$(echo $1 | sed 's/^-*//')'" 1>&2
+            exit 1
+            ;;
+        
+        *)
+            if [[ ! -z "$1" ]] && [[ ! "$1" =~ ^-+ ]]; then
+                param=( ${param[@]} "$1" )
+                param+=( "$1" )
+                shift 1
+            fi
+            ;;
+    esac
+done
+
+if [ $param# -lt 3 ]; then
     echo [ERROR]:Input ERROR
     exit 1
 else
@@ -9,6 +56,11 @@ else
 
     cp $NOW_DIR/$2/* $ABD_DIR/$1/src
     echo name=${3} > $ABD_DIR/info.env
+    if [ $INPUT eq 1 ]; then
+        echo input=1 > $ABD_DIR/info.env
+    else
+        echo input=0 > $ABD_DIR/info.env
+    fi
     cd $ABD_DIR
     docker-compose run --rm $1
 
