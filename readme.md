@@ -1,6 +1,6 @@
 # Auto Build  
 [![CI](https://github.com/rp-agota/auto-build/actions/workflows/check.yml/badge.svg)](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)
-[![VERSION](https://img.shields.io/github/v/release/rp-agota/auto-build)](https://github.com/rp-agota/auto-build/releases)
+[![VERSION](https://img.shields.io/github/v/release/rp-agota/auto-build?label=Release)](https://github.com/rp-agota/auto-build/releases)
 [![MIT License](https://img.shields.io/github/license/rp-agota/auto-build?label=License)](https://github.com/rp-agota/auto-build/blob/master/LICENCE)  
 
 Dockerを使用して手元の環境を汚すことなくプログラムをコンパイルします。  
