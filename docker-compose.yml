@@ -1,0 +1,18 @@
+version: '3.7'
+services: 
+        c: 
+            build: ./c
+            env_file: 
+                - info.env
+            container_name: 'C_ABD_PROCESS'
+            tty: true
+            volumes: 
+                - ./c/src:/root/main
+        cpp: 
+            build: ./cpp
+            env_file: 
+                - info.env
+            container_name: 'C++_ABD_PROCESS'
+            tty: true
+            volumes: 
+                - ./cpp/src:/root/main

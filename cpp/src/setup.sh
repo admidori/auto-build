@@ -1,4 +1,4 @@
 #!/bin/sh
-g++ $name.c
+g++ $name.cpp
 ./a.out > output.txt
 rm a.out
