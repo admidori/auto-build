@@ -17,7 +17,7 @@ jobs:
           docker-compose version
           make -v
           gcc -v
-          
+
       - name: install
         run: make install
 
@@ -26,18 +26,18 @@ jobs:
 
       - name: version
         run: abd -v
-        
+
       - name: c-test
         working-directory: ./.test
         run: abd c src test
-        
+
       - name: c++-test
         working-directory: ./.test
         run: abd cpp src test
-        
-        - name: ALGOL-test
-        working-directory: ./.test
-        run: abd alg src test
-        
+
+      - name: ALGOL-test
+      working-directory: ./.test
+      run: abd alg src test
+
       - name: uninstall
         run: make uninstall
