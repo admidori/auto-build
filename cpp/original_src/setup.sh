@@ -1,4 +1,8 @@
 #!/bin/sh
 g++ $name.cpp
-./a.out > output.txt
+if [ $input -eq 1 ]; then
+    ./a.out < input.txt > output.txt
+else
+    ./a.out > output.txt
+fi
 rm a.out
