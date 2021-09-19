@@ -36,8 +36,8 @@ jobs:
         run: abd cpp src test
 
       - name: ALGOL-test
-      working-directory: ./.test
-      run: abd alg src test
+        working-directory: ./.test
+        run: abd alg src test
 
       - name: uninstall
         run: make uninstall
