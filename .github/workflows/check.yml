@@ -9,7 +9,7 @@ on:
 jobs: 
   Ubuntu: 
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - uses: actions/checkout@v2
       - name: init
         run: |
@@ -30,7 +30,7 @@ jobs:
       - name: c-test
         working-directory: ./.test
         run: abd c src test
-
+        
       - name: c++-test
         working-directory: ./.test
         run: abd cpp src test
@@ -38,6 +38,6 @@ jobs:
         - name: ALGOL-test
         working-directory: ./.test
         run: abd alg src test
-
+        
       - name: uninstall
         run: make uninstall
