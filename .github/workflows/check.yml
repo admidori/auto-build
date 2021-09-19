@@ -27,21 +27,17 @@ jobs:
       - name: version
         run: abd -v
         
-      - name: c-test(standard)
+      - name: c-test
         working-directory: ./.test
-        run: abd c standard test
+        run: abd c src test
 
-      - name: c-test(input)
+      - name: c++-test
         working-directory: ./.test
-        run: abd -i c input test
+        run: abd cpp src test
 
-      - name: cpp-test(standard)
+        - name: ALGOL-test
         working-directory: ./.test
-        run: abd cpp standard test
-
-      - name: cpp-test(input)
-        working-directory: ./.test
-        run: abd -i cpp input test
+        run: abd alg src test
 
       - name: uninstall
         run: make uninstall
