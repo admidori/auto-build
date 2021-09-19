@@ -24,7 +24,7 @@ DockerとDocker-composeを手元の環境でインストールしてください
 
 ## STEP 1
 gitで当リポジトリをcloneしてください。  
-```$ggit clone https://github.com/rp-agota/auto-build.git```  
+```$git clone https://github.com/rp-agota/auto-build.git```  
 
 ## STEP 2
 ターミナルにて以下を実行してください。  
