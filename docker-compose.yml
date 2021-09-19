@@ -16,3 +16,11 @@ services:
             tty: true
             volumes: 
                 - ./cpp/src:/root/main
+        alg: 
+            build: ./alg
+            env_file: 
+                - info.env
+            container_name: 'ALGOL_ABD_PROCESS'
+            tty: true
+            volumes: 
+                - ./alg/src:/root/main
