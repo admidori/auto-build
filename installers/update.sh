@@ -1,8 +1,7 @@
 #!/bin/sh
-PULL=$(git pull origin master > /dev/null)
-UPDATE_STRING="Already up to date."
+(git pull origin master | grep "Already up to date.") &> /dev/null
 
-if [ "$PULL" = "$UPDATE_STRING" ]; then
+if [ $? -eq 0 ]; then
     echo "abd: [ERROR] Already up to date."
     exit 0
 else
