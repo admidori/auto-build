@@ -7,13 +7,14 @@ Dockerを使用して手元の環境を汚すことなくプログラムをコ�
 対応言語順次追加予定。  
 
 ## 動作確認済環境  
-- Arch Linux  
-- MacOS Big Sur  
-※大体のLinux/UNIX系OSで動作すると思います。なおWindowsは確実に動きません。  
+- Ubuntu 20.04
+- Arch Linux
+- macOS Big Sur
 
 ## 対応言語  
 - C
 - C++
+- ALGOL
 
 # 準備とインストール
 ## STEP 0
