@@ -6,6 +6,9 @@ install: ## Auto-buildをインストールします。
  
 uninstall: ## Auto-buildをアンインストールします。
 	@cd installers && chmod 777 uninstall.sh && ./uninstall.sh
+
+reinstall: ## Auto-buildをアップデートします。
+	@cd installers && chmod 777 reinstall.sh && ./reinstall.sh
  
 .DEFAULT_GOAL := help
 .PHONY: help install uninstall
