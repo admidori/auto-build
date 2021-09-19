@@ -54,7 +54,7 @@ testディレクトリ内のhello.cをコンパイルしたい場合
 ターミナルにて以下を実行してください。  
 ```
 $cd auto-build
-$make reinstall
+$make update
 ```
 
 # アンインストール
