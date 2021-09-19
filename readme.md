@@ -56,7 +56,7 @@ testディレクトリ内のhello.cをコンパイルしたい場合
 $ cd auto-build
 $ make update
 ```
-## [!]Notes  
+### Notes  
 当リポジトリにはmasterブランチとreleaseブランチが存在しています。  
 masterブランチは大きなアップデートを、releaseブランチにはmasterブランチの前身となるような小さなアップデートを行っています。(所謂開発版です)  
 releaseブランチはその性質上安定していない可能性がありますが、多くの機能を使えることがあります。  
@@ -64,7 +64,6 @@ releaseブランチはその性質上安定していない可能性がありま�
 ```
 $ cd auto-build
 $ make update-develop
-$ git checkout release
 ```
 
 # アンインストール
