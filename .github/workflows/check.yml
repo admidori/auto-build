@@ -39,5 +39,9 @@ jobs:
         working-directory: ./.test
         run: abd alg src test
 
+      - name: Go-test
+        working-directory: ./.test
+        run: abd go src test
+
       - name: uninstall
         run: make uninstall
