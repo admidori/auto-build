@@ -10,6 +10,9 @@ uninstall: ## Auto-buildをアンインストールします。
 update: ## Auto-buildをアップデートします。
 	@cd installers && chmod 777 update.sh && ./update.sh
  
+update-develop: ## [上級者向け]Auto-buildの開発版を使用します。
+	@cd installers && chmod 777 update-develop.sh && ./update-develop.sh
+
 .DEFAULT_GOAL := help
 .PHONY: help install uninstall
  

@@ -2,9 +2,9 @@ name: CI
 
 on: 
   push: 
-    branches: [ master ]
+    branches: [master]
   pull_request: 
-    branches: [ master ]
+    branches: [master, release ]
 
 jobs: 
   Ubuntu: 
@@ -38,6 +38,10 @@ jobs:
       - name: ALGOL-test
         working-directory: ./.test
         run: abd alg src test
+
+      - name: Go-test
+        working-directory: ./.test
+        run: abd go src test
 
       - name: uninstall
         run: make uninstall
