@@ -15,7 +15,7 @@ usage() {
 
 version() {
     echo "### SOFTWARE INFOMATION ###"
-    echo "Auto build (abd)"
+    echo "Auto build (abd) --$STATUS"
     echo "Version:$VERSION"
     echo ""
     echo "Copyright (C) $YEAR Midori Ado"
