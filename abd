@@ -1,5 +1,7 @@
 #!/bin/sh
-source ./.env
+TMP=$(readlink /usr/local/bin/abd)
+ABD_DIR=${TMP%/abd}
+source $ABD_DIR/.env
 CNT=0
 INPUT=0
 
@@ -69,8 +71,6 @@ if [ $CNT -lt 3 ]; then
     exit 1
 else
     NOW_DIR=$(pwd)
-    TMP=$(readlink /usr/local/bin/abd)
-    ABD_DIR=${TMP%/abd}
 
     cp $NOW_DIR/$DIRECTORY/* $ABD_DIR/$LANGUAGE/src
     echo name=${FILE} > $ABD_DIR/info.env
