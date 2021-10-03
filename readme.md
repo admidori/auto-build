@@ -31,8 +31,8 @@ gitで当リポジトリをcloneしてください。
 ## STEP 2
 ターミナルにて以下を実行してください。  
 ```
-$cd auto-build
-$make install
+$ cd auto-build
+$ sudo make install
 ```
 インストールは以上です。  
 
@@ -71,8 +71,8 @@ $ make update-develop
 # アンインストール
 ターミナルにて以下を実行してください。  
 ```
-$cd auto-build
-$make uninstall
+$ cd auto-build
+$ make uninstall
 ```
 アンインストールは以上です。cloneしたファイルは削除して頂いて結構です。  
 
