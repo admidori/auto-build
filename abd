@@ -87,13 +87,16 @@ else
 				echo "[ERROR]:" $LANGUAGE "isn't spported."
 				exit 1
 			fi
-		if [[ ! -e $FILE ]]; then
-				echo "[ERROR]:" $FILE "does not exit."
-				exit 1
-		fi
+		
 		if [[ ! -d $DIRECTORY ]]; then
 			 echo "[ERROR]:" $DIRECTORY "does not exit."
 			 exit 1
+		fi
+
+		FILENAME="${DIRECTORY}/${FILE}.${LANGUAGE}"
+		if [[ ! -e $FILENAME ]]; then
+				echo "[ERROR]:" $FILE "does not exit."
+				exit 1
 		fi
     cp $NOW_DIR/$DIRECTORY/* $ABD_DIR/$LANGUAGE/src
     echo name=${FILE} > $ABD_DIR/info.env
