@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Version hard coding
+# Version
 VERSION=beta1.2
 STATUS=STABLE
 YEAR=2022
@@ -75,12 +75,31 @@ if [ $CNT -lt 3 ]; then
     echo [ERROR]:Input ERROR
     exit 1
 else
+		FLAG=0
     NOW_DIR=$(pwd)
-
+		SUPPORT_LANG=(c cpp alg go hs)
+		for tmp in ${SUPPORT_LANG[@]}; do
+			if [[ $LANGUAGE = ${tmp} ]]; then
+				FLAG=1
+				break
+			fi
+		done
+			if [[ $FLAG -eq 0 ]]; then
+				echo "[ERROR]:" $LANGUAGE "isn't spported."
+				exit 1
+			fi
+		if [[ ! -e $FILE ]]; then
+				echo "[ERROR]:" $FILE "does not exit."
+				exit 1
+		fi
+		if [[ ! -d $DIRECTORY ]]; then
+			 echo "[ERROR]:" $DIRECTORY "does not exit."
+			 exit 1
+		fi
     cp $NOW_DIR/$DIRECTORY/* $ABD_DIR/$LANGUAGE/src
     echo name=${FILE} > $ABD_DIR/info.env
 		cd $ABD_DIR
-    if [ $EXEC -eq 1 ]; then
+    if [[ $EXEC -eq 1 ]]; then
 				TMP2=_ABD_PROCESS
 				CMD=${LANGUAGE^^}$TMP2
 				echo exec=1 >> $ABD_DIR/info.env
