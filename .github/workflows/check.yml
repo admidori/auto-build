@@ -28,19 +28,19 @@ jobs:
         run: abd -v
 
       - name: c-test
-        working-directory: ./.test
+        working-directory: ./.github/test
         run: abd c src test
 
       - name: c++-test
-        working-directory: ./.test
+        working-directory: ./.github/test
         run: abd cpp src test
 
       - name: ALGOL-test
-        working-directory: ./.test
+        working-directory: ./.github/test
         run: abd alg src test
 
       - name: Go-test
-        working-directory: ./.test
+        working-directory: ./.github/test
         run: abd go src test
 
       - name: uninstall
