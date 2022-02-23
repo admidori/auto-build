@@ -1,24 +1,17 @@
-# Makefileでtest機能を実装するとroot権限で実行してしまうためabdが正しく動作しない。
-# そのためtest機能の実装は見送っている。
-
-install: ## Auto-buildをインストールします。
+install: ## Install Auto-build
 	@cd installers && chmod 777 install.sh && ./install.sh
  
-uninstall: ## Auto-buildをアンインストールします。
+uninstall: ## Uninstall Auto-build
 	@cd installers && chmod 777 uninstall.sh && ./uninstall.sh
 
-update: ## Auto-buildをアップデートします。
+update: ## Update Auto-build
 	@cd installers && chmod 777 update.sh && ./update.sh
  
-update-develop: ## [上級者向け]Auto-buildの開発版を使用します。
-	@cd installers && chmod 777 update-develop.sh && ./update-develop.sh
-
 .DEFAULT_GOAL := help
-.PHONY: help install uninstall
+.PHONY: help install uninstall update
  
 help:  ## インストールツールの使い方を表示します。
-	@echo "***Auto-build インストールツール***"
-	@echo "行いたい動作に合わせて以下を選択してください。sudoを付けることに留意してください。"
+	@echo "***Auto-build install tool***"
 	@echo "[e.g.] $ sudo make install"
 	@echo ""
 	@grep -E '^[0-9a-zA-Z_-]+[[:blank:]]*:.*?## .*$$' $(MAKEFILE_LIST) | sort \
