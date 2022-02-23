@@ -3,13 +3,13 @@ TMP=$(readlink /usr/local/bin/abd)
 ABD_DIR=${TMP%/abd}
 source $ABD_DIR/.env
 CNT=0
-INPUT=0
+EXEC=0
 
 usage() {
     echo "Usage: abd [OPTIONS] (LANGUAGE) (DIRECTORY) (FILE)"
     echo "  -h, --help      : Print help message."
     echo "  -v, --version   : Print version infomation."
-    echo "  -i              : Read input.txt."
+    echo "  -e              : Exec docker container"
     exit 0
 }
 
@@ -37,8 +37,8 @@ do
             version
             ;;
         
-        -i)
-            INPUT=1
+        -e)
+            EXEC=1
             shift
             ;;
         
@@ -74,23 +74,24 @@ else
 
     cp $NOW_DIR/$DIRECTORY/* $ABD_DIR/$LANGUAGE/src
     echo name=${FILE} > $ABD_DIR/info.env
-    if [ $INPUT -eq 1 ]; then
-        echo input=1 >> $ABD_DIR/info.env
-    else
-        echo input=0 >> $ABD_DIR/info.env
-    fi
-    cd $ABD_DIR
-    docker-compose run --rm $LANGUAGE
-
-    echo ""
-    echo "BUILD COMPLETE!"
-    echo ""
-    echo "###########  OUTPUT  ##########"
-    cat $ABD_DIR/$LANGUAGE/src/output.txt
-    echo "############# END #############"
-
-    rm -r $ABD_DIR/$LANGUAGE/src
-    cp -fr $ABD_DIR/$LANGUAGE/original_src $ABD_DIR/$LANGUAGE/src
-    rm $ABD_DIR/info.env
-    touch $ABD_DIR/info.env
+		cd $ABD_DIR
+    if [ $EXEC -eq 1 ]; then
+				echo exec=1 >> $ABD_DIR/info.env
+				docker-compose exec $LANGUAGE /bin/bash
+		else
+			echo exec=0 >> $ABD_DIR/info.env
+			docker-compose run --rm $LANGUAGE
+			echo ""
+			echo "BUILD COMPLETE!"
+			echo ""
+			echo "###########  OUTPUT  ##########"
+			cat $ABD_DIR/$LANGUAGE/src/output.txt
+			echo "############# END #############"
+		fi
+    cd $ABD_DIR/$LANGUAGE/src
+		for f in *
+    do
+        [[ "$f" == "setup.sh" ]] && continue
+        rm -r $f
+    done
 fi
