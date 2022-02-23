@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # Version
-VERSION=beta1.2
-STATUS=STABLE
-YEAR=2022
+VERSION=beta2.0
+YEAR=2021-2022
 
 TMP=$(readlink /usr/local/bin/abd)
 ABD_DIR=${TMP%/abd}
@@ -20,7 +19,7 @@ usage() {
 
 version() {
     echo "### SOFTWARE INFOMATION ###"
-    echo "Auto build (abd) --$STATUS"
+    echo "Auto-build (abd)"
     echo "Version:$VERSION"
     echo ""
     echo "Copyright (C) $YEAR Midori Ado"
