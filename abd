@@ -81,8 +81,19 @@ else
     echo name=${FILE} > $ABD_DIR/info.env
 		cd $ABD_DIR
     if [ $EXEC -eq 1 ]; then
+				TMP2=_ABD_PROCESS
+				CMD=${LANGUAGE^^}$TMP2
 				echo exec=1 >> $ABD_DIR/info.env
-				docker-compose exec $LANGUAGE /bin/bash
+				docker-compose up -d $LANGUAGE
+				docker exec -it $CMD sh
+
+				if [ $LANGUAGE=c ]; then
+					docker exec $CMD rm a.out
+				elif [ $LANGUAGE=hs ]; then
+					docker exec $CMD rm $FILE
+				fi
+
+				docker-compose rm -fvs $LANGUAGE
 		else
 			echo exec=0 >> $ABD_DIR/info.env
 			docker-compose run --rm $LANGUAGE
@@ -97,6 +108,7 @@ else
 		for f in *
     do
         [[ "$f" == "setup.sh" ]] && continue
+				[[ "$f" == "output.txt" ]] && continue
         rm -r $f
     done
 fi
