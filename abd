@@ -104,7 +104,8 @@ else
 			cat $ABD_DIR/$LANGUAGE/src/output.txt
 			echo "############# END #############"
 		fi
-    cd $ABD_DIR/$LANGUAGE/src
+    > info.env
+		cd $ABD_DIR/$LANGUAGE/src
 		for f in *
     do
         [[ "$f" == "setup.sh" ]] && continue
