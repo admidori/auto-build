@@ -1,7 +1,12 @@
-#!/bin/sh
+#!/bin/bash
+
+# Version hard coding
+VERSION=beta1.2
+STATUS=STABLE
+YEAR=2022
+
 TMP=$(readlink /usr/local/bin/abd)
 ABD_DIR=${TMP%/abd}
-source $ABD_DIR/.env
 CNT=0
 EXEC=0
 
