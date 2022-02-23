@@ -1,21 +1,25 @@
-#!/bin/sh
+#!/bin/bash
+
+# Version
+VERSION=beta2.0
+YEAR=2021-2022
+
 TMP=$(readlink /usr/local/bin/abd)
 ABD_DIR=${TMP%/abd}
-source $ABD_DIR/.env
 CNT=0
-INPUT=0
+EXEC=0
 
 usage() {
     echo "Usage: abd [OPTIONS] (LANGUAGE) (DIRECTORY) (FILE)"
     echo "  -h, --help      : Print help message."
     echo "  -v, --version   : Print version infomation."
-    echo "  -i              : Read input.txt."
+    echo "  -e              : Exec docker container"
     exit 0
 }
 
 version() {
     echo "### SOFTWARE INFOMATION ###"
-    echo "Auto build (abd) --$STATUS"
+    echo "Auto-build (abd)"
     echo "Version:$VERSION"
     echo ""
     echo "Copyright (C) $YEAR Midori Ado"
@@ -37,8 +41,8 @@ do
             version
             ;;
         
-        -i)
-            INPUT=1
+        -e)
+            EXEC=1
             shift
             ;;
         
@@ -70,27 +74,63 @@ if [ $CNT -lt 3 ]; then
     echo [ERROR]:Input ERROR
     exit 1
 else
+		FLAG=0
     NOW_DIR=$(pwd)
+		SUPPORT_LANG=(c cpp alg go hs)
+		for tmp in ${SUPPORT_LANG[@]}; do
+			if [[ $LANGUAGE = ${tmp} ]]; then
+				FLAG=1
+				break
+			fi
+		done
+			if [[ $FLAG -eq 0 ]]; then
+				echo "[ERROR]:" $LANGUAGE "isn't spported."
+				exit 1
+			fi
+		
+		if [[ ! -d $DIRECTORY ]]; then
+			 echo "[ERROR]:" $DIRECTORY "does not exit."
+			 exit 1
+		fi
 
+		FILENAME="${DIRECTORY}/${FILE}.${LANGUAGE}"
+		if [[ ! -e $FILENAME ]]; then
+				echo "[ERROR]:" $FILE "does not exit."
+				exit 1
+		fi
     cp $NOW_DIR/$DIRECTORY/* $ABD_DIR/$LANGUAGE/src
     echo name=${FILE} > $ABD_DIR/info.env
-    if [ $INPUT -eq 1 ]; then
-        echo input=1 >> $ABD_DIR/info.env
-    else
-        echo input=0 >> $ABD_DIR/info.env
-    fi
-    cd $ABD_DIR
-    docker-compose run --rm $LANGUAGE
+		cd $ABD_DIR
+    if [[ $EXEC -eq 1 ]]; then
+				TMP2=_ABD_PROCESS
+				CMD=${LANGUAGE^^}$TMP2
+				echo exec=1 >> $ABD_DIR/info.env
+				docker-compose up -d $LANGUAGE
+				docker exec -it $CMD sh
 
-    echo ""
-    echo "BUILD COMPLETE!"
-    echo ""
-    echo "###########  OUTPUT  ##########"
-    cat $ABD_DIR/$LANGUAGE/src/output.txt
-    echo "############# END #############"
+				if [ $LANGUAGE=c ]; then
+					docker exec $CMD rm a.out
+				elif [ $LANGUAGE=hs ]; then
+					docker exec $CMD rm $FILE
+				fi
 
-    rm -r $ABD_DIR/$LANGUAGE/src
-    cp -fr $ABD_DIR/$LANGUAGE/original_src $ABD_DIR/$LANGUAGE/src
-    rm $ABD_DIR/info.env
-    touch $ABD_DIR/info.env
+				docker-compose rm -fvs $LANGUAGE
+		else
+			echo exec=0 >> $ABD_DIR/info.env
+			docker-compose run --rm $LANGUAGE
+			echo ""
+			echo "BUILD COMPLETE!"
+			echo ""
+			echo "###########  OUTPUT  ##########"
+			cat $ABD_DIR/$LANGUAGE/src/output.txt
+			echo "############# END #############"
+		fi
+    > info.env
+		cd $ABD_DIR/$LANGUAGE/src
+		for f in *
+    do
+        [[ "$f" == "setup.sh" ]] && continue
+				[[ "$f" == "output.txt" ]] && continue
+        rm -r $f
+    done
 fi

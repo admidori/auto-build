@@ -1,8 +1,7 @@
 #!/bin/sh
 gcc $name.c
-if [ $input -eq 1 ]; then
-    ./a.out < input.txt > output.txt
-else
+if [ $exec -eq 0 ]; then
     ./a.out > output.txt
+else
+		./a.out
 fi
-rm a.out

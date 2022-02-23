@@ -1,8 +1,7 @@
 #!/bin/sh
 ghc $name.hs
-if [ $input -eq 1 ]; then
-    ./$name < input.txt > output.txt
-else
+if [ $exec -eq 0 ]; then
     ./$name > output.txt
+else
+		./$name
 fi
-rm $name
