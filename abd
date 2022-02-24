@@ -8,6 +8,7 @@ TMP=$(readlink /usr/local/bin/abd)
 ABD_DIR=${TMP%/abd}
 CNT=0
 EXEC=0
+SUPPORT_LANG=(c cpp alg go hs py)
 
 usage() {
     echo "Usage: abd [OPTIONS] (LANGUAGE) (DIRECTORY) (FILE)"
@@ -76,7 +77,6 @@ if [ $CNT -lt 3 ]; then
 else
 		FLAG=0
     NOW_DIR=$(pwd)
-		SUPPORT_LANG=(c cpp alg go hs)
 		for tmp in ${SUPPORT_LANG[@]}; do
 			if [[ $LANGUAGE = ${tmp} ]]; then
 				FLAG=1

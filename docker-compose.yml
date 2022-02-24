@@ -40,3 +40,11 @@ services:
             tty: true
             volumes: 
                 - ./hs/src:/root/main
+        py: 
+            build: ./py
+            env_file: 
+                - info.env
+            container_name: 'PYTHON_ABD_PROCESS'
+            tty: true
+            volumes: 
+                - ./py/src:/root/main
