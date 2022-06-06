@@ -1,76 +1,73 @@
-[:uk: English infomation](https://github.com/rp-agota/auto-build/readme.md)
+[:jp: Japanese infomation](https://github.com/rp-agota/auto-build/master/readme.md)
 # Auto Build  
 [![CI](https://github.com/rp-agota/auto-build/actions/workflows/check.yml/badge.svg)](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)
 [![VERSION](https://img.shields.io/github/v/release/rp-agota/auto-build?label=Release)](https://github.com/rp-agota/auto-build/releases)
 [![MIT License](https://img.shields.io/github/license/rp-agota/auto-build?label=License)](https://github.com/rp-agota/auto-build/blob/master/LICENCE)  
   
-Dockerを使用して手元の環境を汚すことなくプログラムをコンパイルします。  
+Use Docker to compile your program without polluting your environment.
   
-## 動作確認環境
+## system requirements 
 - Ubuntu 20.04 ※
 - Ubuntu 18.04  
-※[CI環境](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)での確認
+※ On [CI](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)
   
-## 対応言語  
+## Supported Languages  
 - C
 - C++
 - ALGOL
 - Go
 - Haskell
 
-# 準備とインストール
+# Installation
 ## STEP 0
-DockerとDocker-composeを手元の環境でインストールしてください。  
-その際、sudoを付けずに実行できるようにユーザーをDockerグループに追加しておいてください。  
-また、インストールの際にmakeを使用するためmakeも必要です。  
+It programs need Docker and Docker-compose, make.  
+You need to install them if you don't have.
+And reccomened to Docker add "Docker" groups. (Docker don't need "sudo" when Execute commands.)
 
 ## STEP 1
-gitで当リポジトリをcloneしてください。  
+Clone this repo.    
 ```
 $ git clone https://github.com/rp-agota/auto-build.git
 ```  
 
 ## STEP 2
-ターミナルにて以下を実行してください。  
+Excute bellow commands in Shell.
 ```
 $ cd auto-build
 $ sudo make install
 ```
-インストールは以上です。  
+That's all to installations.
 
-# 使い方
-任意の名前で作業用のディレクトリを作成し、その中で開発を行います。  
-その後、作業用ディレクトリの**親階層**にて、以下を実行します。  
-```$ abd [コンパイルを行いたいファイルの拡張子] [作業用ディレクトリの名前] [コンパイルを行いたいファイル名(拡張子無し)]```  
-この際、ファイル名に拡張子は含めないことに注意してください。  
+# Usage
+First, You make directory and to develop there.
+Second, Execute bellow command in **parent** directory of working.
+```$ abd [extension of file] [name of working directory] [name of to compile file (Without extension)]```  
 
 **(EX)**
-testディレクトリ内のhello.cをコンパイルしたい場合  
+If you want to compile "hello.c" in "test" directory.  
 `$ abd c test hello`  
 
-## Docker内に入りたい
-標準入力を使う場合など、Docker内に入ってコマンドを実行したい場合は、作業用ディレクトリの親階層にて、以下を実行します。  
-```$ abd -e [コンパイルを行いたいファイルの拡張子] [作業用ディレクトリの名前] [コンパイルを行いたいファイル名(拡張子無し)]```  
-この際、オプション-eを使用していることに注意してください。
+## If you want to enter the Docker.  
+Execute bellow commands if you work in Docer.  
+```$ abd -e [extension of file] [name of working directory] [name of to compile file (Without extension)]```    
 
-# アップデート  
-ターミナルにて以下を実行してください。  
+# Update  
+Execute bellow commands.
 ```
 $ cd auto-build
 $ make update
 ```
 
-# アンインストール
-ターミナルにて以下を実行してください。  
+# Uninstall
+Execute bellow commands.
 ```
 $ cd auto-build
 $ make uninstall
 ```
-アンインストールは以上です。cloneしたファイルは削除して頂いて結構です。  
+That's all to uninstallations. You can delete cloned directory.
 
 # Contribute
-IssuesやPull requestsはいつでも受け付けています。  
-お気軽にお声がけください。  
+We are waiting your implovements!!  
 
 ## License
 [MIT](https://github.com/rp-agota/auto-build/blob/master/LICENCE) (C) 2021-2022 rp-agota
