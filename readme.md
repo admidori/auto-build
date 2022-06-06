@@ -6,7 +6,7 @@
   
 Use Docker to compile your program without polluting your environment.
   
-## system requirements 
+## System requirements 
 - Ubuntu 20.04 ※
 - Ubuntu 18.04  
 ※ On [CI](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)
