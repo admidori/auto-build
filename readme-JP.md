@@ -1,4 +1,4 @@
-[:uk: English infomation](https://github.com/rp-agota/auto-build/master/readme.md)
+[:uk: English infomation](https://github.com/rp-agota/auto-build/blob/master/readme.md)
 # Auto Build  
 [![CI](https://github.com/rp-agota/auto-build/actions/workflows/check.yml/badge.svg)](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)
 [![VERSION](https://img.shields.io/github/v/release/rp-agota/auto-build?label=Release)](https://github.com/rp-agota/auto-build/releases)
