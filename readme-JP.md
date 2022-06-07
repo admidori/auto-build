@@ -9,7 +9,10 @@ Dockerを使用して手元の環境を汚すことなくプログラムをコ�
 ## 動作確認環境
 - Ubuntu 20.04 ※
 - Ubuntu 18.04  
-※[CI環境](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)での確認
+- Docker 20.10.16
+- Docker-compose 1.29.2
+- GNU Make 4.2.1  
+※[CI環境](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)での確認  
   
 ## 対応言語  
 - C
@@ -68,7 +71,7 @@ $ make uninstall
 アンインストールは以上です。cloneしたファイルは削除して頂いて結構です。  
 
 # Contribute
-IssuesやPull requestsはいつでも受け付けています。  
+[Issue](https://github.com/rp-agota/auto-build/issues)や[Pull requests](https://github.com/rp-agota/auto-build/pulls)はいつでも受け付けています。  
 お気軽にお声がけください。  
 
 ## License
