@@ -71,7 +71,7 @@ That's all to uninstallations. You can delete cloned directory.
 
 # Contribute
 We are waiting your implovements!!  
-When you have a problem about this, please send (Issue)[https://github.com/rp-agota/auto-build/issues].
+When you have a problem about this, please send [Issue](https://github.com/rp-agota/auto-build/issues) , [Pull request](https://github.com/rp-agota/auto-build/pulls).
 
 ## License
 [MIT](https://github.com/rp-agota/auto-build/blob/master/LICENCE) (C) 2021-2022 rp-agota
