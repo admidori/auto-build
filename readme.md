@@ -9,18 +9,21 @@ Use Docker to compile your program without polluting your environment.
 ## System requirements 
 - Ubuntu 20.04 ※
 - Ubuntu 18.04  
-※ On [CI](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)
+- Docker 20.10.16
+- Docker-compose 1.29.2
+- GNU Make 4.2.1  
+※ Checked on [CI](https://github.com/rp-agota/auto-build/actions/workflows/check.yml)
   
 ## Supported Languages  
 - C
 - C++
 - ALGOL
 - Go
-- Haskell
+- Haskell  
 
 # Installation
 ## STEP 0
-It programs need Docker and Docker-compose, make.  
+It programs need Docker and Docker-compose, GNU Make.  
 You need to install them if you don't have.
 And reccomened to Docker add "Docker" groups. (Docker don't need "sudo" when Execute commands.)
 
@@ -68,6 +71,7 @@ That's all to uninstallations. You can delete cloned directory.
 
 # Contribute
 We are waiting your implovements!!  
+When you have a problem about this, please send (Issue)[https://github.com/rp-agota/auto-build/issues].
 
 ## License
 [MIT](https://github.com/rp-agota/auto-build/blob/master/LICENCE) (C) 2021-2022 rp-agota
